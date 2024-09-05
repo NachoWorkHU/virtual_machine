@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obligatorio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section>
+    <form>
+        <!-- SECCION UI - REGISTRAR USUARIOS -->
+        <div id="divF01Registrar" class="MenuDiv"> 
+            <fieldset>
+                <h2><strong>Registrarse</strong></h2>
+                <p>
+                    <label for="txtNombreF01">Nombre:</label>
+                    <input type="text" id="txtNombreF01"/>
+                </p>
+                <p>
+                    <label for="txtApellidoF01">Apellido:</label>
+                    <input type="text" id="txtApellidoF01"/>
+                </p>
+                <p>
+                    <label for="txtNombreUsF01">Nombre de usuario:</label>
+                    <input type="text" id="txtNombreUsF01"/>
+                </p>
+                <p>
+                    <label for="txtContraseniaF01">Contraseña</label>
+                    <input type="password" id="txtContraseniaF01"/>
+                    <p>*La contraseña deberá tener un minimo de 5 caracteres, contando 
+                        con al menos con una mayúscula, una minúscula y un número*
+                    </p>
+                </p>
+                <p>
+                    <label for="txtTarjetaF01">Tarjeta de credito:</label>
+                    <input type="text" id='txtTarjetaF01' placeholder="XXXX-XXXX-XXXX-XXXX"/>
+                    <p>*Ingrese numero de tarjeta sin guíones*</p>
+                </p>
+                <p>
+                    <label for="txtCVCF01">Codigo de verificación:</label>
+                    <input type="text" id="txtCVCF01">
+                    
+                </p>
+                <p><input type="button" value="Registrarse" id="btnRegistrarse_F01" ></p>
+                <p id ="ResultadoF01Registro"></p>
+                <input type="button" value="Volver" id="btnRegistrarseVolver" class='btnMenu' Navegacion="#divF02Login"/>
+            </fieldset>
+        </div>
+        <br>
+        <!-- SECCION UI - LOGIN -->
+        <div id="divF02Login" class="MenuDiv">
+            <fieldset> 
+                <h1>Bienvenido al Servicio de alquiler de maquinas virtuales</h1>
+                <h2><strong>Ingresar en la aplicacion</strong></h2>
+                <p>
+                    <label for='txtRegNombreDeUsuario_F02'>Nombre de usuario:</label>
+                    <input id="txtRegNombreDeUsuario_F02" type="text" placeholder="Ingrese nombre de usuario" />
+                </p>
+                <p>            
+                    <label for="txtRegContraseñaUsuario_F02">Contraseña:</label>
+                    <input id="txtRegContraseñaUsuario_F02" type="password" placeholder="Ingrese contraseña" />
+                </p>
+                <p>
+                <label for="selTipoUsuario_F02">Tipo de usuario</label>
+                <select id="selTipoUsuario_F02">
+                    <option value="Seleccione">Seleccione tipo de usuario</option>
+                    <option value="usuarios">Usuario</option>
+                    <option value="administradores">Administrador</option>
+                </select>
+                <p>
+                <input id="btnIngreso_F02" type="button" value="Ingresar" />
+                <p id="pErrorIngreso_F02"></p>
+                <p>Si no tiene usuario, registrese!</p>
+                <input id="btnRegistrarse_F02" type="button" value="Registrarse" Navegacion="#divF01Registrar" class='btnMenu'/>
+            </fieldset>
+        </div>
+        <br>
+        <!-- SECCION UI - ALQUILAR INSTANCIAS -->
+        <div id="divF03Alquilar" class="MenuDiv">
+            <fieldset>
+            <h2><strong> Alquilar una maquina virtual </strong></h2>
+            <p><input id="btnConsultarCostos_F03" type="button" value="Consultar instancias" /></p>
+            <div id="divVerInstanciasAlquiler"></div> <br>
+            <div id="MostrarTipoTamanioInstancia"></div> 
+            <p id="pErrorSel_F03"></p>
+            <br>
+            <div id="divVolverAlMenu_F03">
+                <input id="btnVolverAlMenu_F03" type="button" value="Volver al menu" class='btnMenu' Navegacion="#divF09MenuUsuario"/>
+            </div>
+
+            </fieldset>
+        </div>
+        <br>
+        <!-- SECCION UI - LISTADO DE MAQUINAS ALQUILADAS -->
+        <div id="divF04ConsultarMaquinas" class="MenuDiv">
+            <fieldset>
+                <h2><strong> Listado de maquinas alquiladas </strong></h2>
+                <div id="divComboBoxInstancia"></div> 
+                <p><input type="button" value="Consultar maquinas alquiladas" id="btnF04Consultar"></p>
+                <div id="divTablaConListado"></div>
+                <p id='pMostrarMensajeAlquilada'></p>
+                <p><input type="button" value="Volver al menú" id='btnVolverMenuF04'class='btnMenu'  Navegacion="#divF09MenuUsuario"/></p>
+            </fieldset>
+        </div>
+        <br>
+        <!-- SECCION UI - COSTO TOAL DE ALQUILER -->
+        <div id="divF05ConsultarCostoTotal" class="MenuDiv">
+            <fieldset>
+                <h2><strong>Consultar costo total de alquiler</strong></h2>
+                <p><input id="btnMostrarCostoTotal_F05" type="button" value="Mostrar costo total" /></p> 
+                <div id="divF05TablaCostoTotal"></div>
+                <p><input id="btnVolverAlMenu_F05" type="button" value="Volver al menu" class='btnMenu' Navegacion="#divF09MenuUsuario"/></p>
+            </fieldset>
+        </div>
+        <br>
+        <!-- SECCION UI - APROBACION USUARIOS -->
+        <div id="divF06Aprobacion" class="MenuDiv">
+            <fieldset>
+                <h2><strong>Aprobación de usuarios:</strong></h2>
+                <p><input type="button" value="Mostrar lista de usuarios" id='btnMostrarListaUsuarios'></p>
+                <div id="divMostrarReporteUsuario"></div>
+                <p id="pMostrarReporteUsuario"></p>
+                <p><input type="button" value="Volver al menú" id='btnVolverMenuAdmin' class='btnMenu' Navegacion="#divF10MenuAdmin"></p>
+            </fieldset>
+        </div>
+        <br>
+        <!-- SECCION UI - MODIFICAR STOCK DE INSTANCIA -->
+        <div id="divF07ModificarStock" class="MenuDiv">
+            <fieldset>
+                <h2><strong>Modificar stock de maquinas virtuales:</strong></h2>
+                <p>
+                    <input type="button" value="Ver Stock" id="btnVerStock">
+                </p>
+                <div id="divMostrarModificarStock"></div> <br>
+                <div id="divMostrarMensajesModificarVentas"></div><br>
+                <input type="button" value="Volver al menú" id="btnVolverAlMenu_F07" class='btnMenu' Navegacion="#divF10MenuAdmin">
+            </fieldset>
+        </div>
+        <br>
+        <!-- SECCION UI - INFORME DE MAQUINAS VIRTUALES -->
+        <div id="divF08InformeMaquinas" class="MenuDiv">
+            <fieldset>
+                <h2><strong>Informe - Maquinas virtuales:</strong></h2>
+                <p><input type="button" value="Mostrar informe" id="btnMostrarMaquinasVirtuales"></p>
+                <div id="divTablaMaquinasVirtuales"></div>
+                <p><input type="button" value="Volver al menú" class='btnMenu' Navegacion="#divF10MenuAdmin"></p>
+            </fieldset>
+        </div>
+        <br>
+        <!-- SECCION UI - MENU DE USUARIO -->
+        <div id="divF09MenuUsuario" class="usuario MenuDiv" >
+            <fieldset>
+                <h2><strong>Menu - Usuario:</strong></h2>
+                <p><input type="button" value="Alquilar maquina virtual" class='btnMenu' id='btnVerAlquilarMaquina' Navegacion="#divF03Alquilar"></p>
+                <p> <input type="button" value="Listado de maquinas alquiladas" class='btnMenu' id='btnVerConsultarMaquina' Navegacion="#divF04ConsultarMaquinas"></p>
+                <p><input type="button" value="Costo total de alquiler" class='btnMenu' id='btnVerConsultarCostoTotal' Navegacion="#divF05ConsultarCostoTotal"></p>
+                <input type="button" value="Cerrar sesion" id="btnMenuUsuarioCerrar"  class='btnMenu' Navegacion="#divF02Login">
+            </fieldset>
+        </div>
+        <br>
+        <!-- SECCION UI - MENU DE ADMINISTRADOR -->
+        <div id="divF10MenuAdmin" class="administrador MenuDiv">
+            <fieldset>
+                <h2><strong>Menu - Administrador:</strong></h2>
+                <p><input type="button" value="Aprobacion de usuarios" id="btnAprobacionUsuario"  class='btnMenu' Navegacion="#divF06Aprobacion"></p>
+                <p><input type="button" value="Modificar stock de maquinas virtuales" id="btnModificarStock"  class='btnMenu' Navegacion="#divF07ModificarStock"></p>
+                <p><input type="button" value="Ver informe de maquinas virtuales" id="btnVerInforme" class='btnMenu' Navegacion="#divF08InformeMaquinas"></p>
+                <input type="button" value="Cerrar sesion" id="btnMenuAdminCerrar" class='btnMenu' Navegacion="#divF02Login">
+                <p id="divCerrarSesionErrorAdmin"></p>
+            </fieldset>
+        </div>
+        <br>
+    </form>
+    </section>
+    <script src="sistema.js"></script>
+    <script src="clases.js"></script>
+    <script src="precargaDatos.js"></script>
+    <script src="ui.js"></script>
+</body>
+</html>
